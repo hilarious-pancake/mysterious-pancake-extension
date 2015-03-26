@@ -13,3 +13,5 @@ f.transaction(function(curr) {
       document.getElementById('contents').innerHTML = s.val();
     });
   });
+
+console.log('FROM THE ACTION');
