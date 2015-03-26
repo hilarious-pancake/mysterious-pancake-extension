@@ -12,8 +12,10 @@ chrome.extension.onMessage.addListener(
     sendResponse();
   });
 
-$('body').on('click', function(){
-  $(this).html('hello');
+$('p').on('click', function(){
+  alert('hello');
 });
+
+
 
 console.log('FROM THE BG');

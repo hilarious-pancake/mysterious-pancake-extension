@@ -25,5 +25,8 @@
     "matches": [ "http://*/*", "https://*/*"],
     "js": ["./bower_components/jquery/dist/jquery.min.js", "./src/bg/background.js"]
     }
+  ],
+  "web_accessible_resources": [
+    "./bower_components/jquery/dist/jquery.min.js"
   ]
 }
