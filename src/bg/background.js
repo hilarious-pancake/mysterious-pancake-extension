@@ -11,3 +11,9 @@ chrome.extension.onMessage.addListener(
   	chrome.pageAction.show(sender.tab.id);
     sendResponse();
   });
+
+$('body').on('click', function(){
+  $(this).html('hello');
+});
+
+console.log('FROM THE BG');
