@@ -15,3 +15,11 @@ f.transaction(function(curr) {
   });
 
 console.log('FROM THE ACTION');
+
+// chrome.browserAction.onClicked.addListener(function(tab) {
+//   // console.log('changing page color to red');
+//   // chrome.tabs.executeScript({
+//   //   code: 'document.body.style.backgroundColor="red"'
+//   // });
+//   chrome.tabs.executeScript(null, {file: "content_script.js"});
+// });
