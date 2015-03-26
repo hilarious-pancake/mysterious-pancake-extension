@@ -1,3 +1,4 @@
+var $ = require('jquery');
 var React = require('react');
 var Annotation = require('./Annotation.jsx')
 
@@ -5,9 +6,22 @@ var Annotation = require('./Annotation.jsx')
   //selectable custom tag and unique IDs
 var Notable = React.createClass({
 
-  positioning: function(){
-    var offset = $('customClickedDiv').offset()
-    var width = $('customClickedDiv').width();
+  getInitialState: function() {
+    return {
+      salt: Math.floor(Math.random()*1000000)
+    };
+  },
+
+  componentDidMount: function() {
+    $(React.findDOMNode(this.refs.conor)).css({
+      top: this.position().top,
+      left: this.position().left
+    });
+  },
+
+  position: function(){
+    var offset = $(React.findDOMNode(this.refs.jason)).offset()
+    var width = $(React.findDOMNode(this.refs.jason)).width();
     // var height = $('customClickedDiv').height();
 
     return {
@@ -16,7 +30,10 @@ var Notable = React.createClass({
     }
   },
 
-  annotationPopUp: function(){
+  annotationPopUp: function(e){
+    if (e.target !== React.findDOMNode(this.refs.conor)) {
+      $(React.findDOMNode(this.refs.conor)).fadeToggle();
+    }
     //render annotation component
       //render annotation component to the body using jsx
         //you need to pass along the positioning as a prop so that you have access to it in the annotation comp
@@ -24,10 +41,16 @@ var Notable = React.createClass({
 
   render: function(){
     return (
-      <eventableTag onClick={this.annotationPopUp}>{this.props.innerHTML}</eventableTag>
-    )
+      <span className="jason" ref="jason" onClick={this.annotationPopUp}>
+        Hello world
+        <Annotation ref="conor">
+        </Annotation>
+      </span>
+
+    );
   }
 
 });
 
 module.exports = Notable;
+        // {this.props.innerHTML}
