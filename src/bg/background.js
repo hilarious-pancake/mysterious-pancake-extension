@@ -22,6 +22,8 @@
 
 console.log('FROM THE BG');
 
+$(document).ready(function(){
+
 var Hello = React.createClass({displayName: 'Hello',
   render: function() {
     console.log('HEY FROM REACT!');
@@ -33,3 +35,5 @@ React.render(
   React.createElement(Hello, {name: "World"}),
   document.getElementById('container') //it seems that it doesn't work beacuse the script is run before the div
 );
+
+});
