@@ -8,6 +8,6 @@ gulp.task('browserify', function(){
   b.transform(reactify); // use the reactify transform
   b.add('./src/content_script.js');
   return b.bundle()
-    .pipe(source('./src/content_script.js'))
+    .pipe(source('content_script.js'))
     .pipe(gulp.dest('./dist'));
 });

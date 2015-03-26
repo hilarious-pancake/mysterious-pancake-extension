@@ -1,3 +1,4 @@
+var React = require('react');
 var Annotation = require('./Annotation.jsx')
 
 //component for notable objects

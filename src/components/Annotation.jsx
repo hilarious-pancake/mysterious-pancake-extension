@@ -1,3 +1,5 @@
+var React = require('react');
+
 //component for annotations
 var Annotation = React.createClass({
 
