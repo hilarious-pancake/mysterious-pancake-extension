@@ -12,10 +12,24 @@ chrome.extension.onMessage.addListener(
     sendResponse();
   });
 
-$('p').on('click', function(){
-  alert('hello');
-});
+// $('p').on('click', function(){
+//   alert('hello');
+// });
 
-
+// $('.hpms-notable').on('click', function(){
+//   //create a popout
+// })
 
 console.log('FROM THE BG');
+
+var Hello = React.createClass({displayName: 'Hello',
+  render: function() {
+    console.log('HEY FROM REACT!');
+    return React.createElement("div", null, "Hello ", this.props.name);
+  }
+});
+
+React.render(
+  React.createElement(Hello, {name: "World"}),
+  document.getElementById('container') //it seems that it doesn't work beacuse the script is run before the div
+);
