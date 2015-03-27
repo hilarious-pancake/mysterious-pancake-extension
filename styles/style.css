@@ -74,7 +74,7 @@
     empty-cells : show;
     float : none;
     font : normal;
-    font-family : inherit;
+    font-family : Helvetica, Arial, sans-serif;
     font-size : medium;
     font-style : normal;
     font-variant : normal;
@@ -149,9 +149,85 @@
     z-index : auto;
 }
 
+.jason {
+  cursor: pointer;
+}
+
 .conor {
   position: absolute;
-  overflow: scroll;
+  z-index: 1000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #cccccc;
+  width: 400px;
+  height: 200px;
+  opacity: 0.5;
+  padding: 5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 10px #555;
+  box-shadow: 1px 1px 10px #555;
+}
+
+.conor-li {
+  font-size: 0.8em;
+  padding: 1em;
+  color: #222;
+  margin: 0.5em 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.conor-li:nth-child(odd) {
+  background: #D3FBFF;
+}
+
+.conor-li:nth-child(even) {
+  background: #D3FFEA;
+}
+
+.stephanie-input, .stephanie-button {
+  font-family : Helvetica, Arial, sans-serif !important;
+  font-size: 0.8em;
+  padding: 0.6em 1em;
+}
+
+.stephanie-input {
+  border: 1px solid #b4b4b4;
+  margin: 0.5em 0;
+  padding: 1em;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-shadow: -1px -1px -1px #9c9c9c;
+  box-shadow: -1px -1px 1px #9c9c9c;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.stephanie-button {
+  margin: 0 0 0.5em 0;
+  float: right;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgb(2, 175, 134);
+  border: 1px solid rgb(0, 148, 113);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 2px rgb(0, 160, 122);
+  box-shadow: 1px 1px 2px rgb(0, 160, 122);
+}
+
+.stephanie-input:focus {
+  outline: 0 !important;
+  border: 0 !important;
+}
+
+.stephanie-button:hover {
+  background: rgb(0, 162, 123);
 }
 
 .mgnl-highlight {
@@ -160,4 +236,8 @@
 
 .mgnl-underline {
   border-bottom: 1px dotted #444;
+}
+
+.jason-mgnl-highlight {
+  background-color: cornsilk;
 }

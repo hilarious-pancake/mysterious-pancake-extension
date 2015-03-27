@@ -29,7 +29,7 @@ var Notable = React.createClass({
   componentDidMount: function() {
     $(React.findDOMNode(this.refs.conor)).css({
       top: this.position().top,
-      left: this.position().left
+      left: this.position().left + 10
     });
   },
 
@@ -44,8 +44,18 @@ var Notable = React.createClass({
   },
 
   annotationPopUp: function(e){
-    if (!React.findDOMNode(this.refs.conor).contains(e.target)) {
-      $(React.findDOMNode(this.refs.conor)).fadeToggle();
+    var annotation = React.findDOMNode(this.refs.conor);
+    var annotationObj = $(annotation);
+    var sentenceObj = $(React.findDOMNode(this.refs.jason));
+
+    if (!annotation.contains(e.target)) {
+      annotationObj.fadeToggle();
+
+      annotationObj.animate({
+        scrollTop: annotationObj.prop('scrollHeight') - annotationObj.height()
+      }, 500);
+
+      sentenceObj.toggleClass('jason-mgnl-highlight');
     }
   },
 
@@ -58,7 +68,6 @@ var Notable = React.createClass({
   },
 
   render: function(){
-
     var hasNotes = this.state.notes.length > 0;
     var classString = (hasNotes) ? "jason mgnl-underline" : "jason";
 

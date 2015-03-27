@@ -39,31 +39,25 @@ var Annotation = React.createClass({
     text.val('');
   },
 
+  show: function() {
+    $(React.findDOMNode(this.refs.conor)).css('opacity', 1);
+  },
+
   render: function(){
     var style = {
-      position: "absolute",
-      backgroundColor: "#cccccc",
-      width: "400px",
-      height: "200px",
-      borderRadius: "5px",
-      opacity: "0.5",
-      padding: "5px",
-      display: "none",
-      zIndex: 1000
-      // top: this.props.top,
-      // left: this.props.left
+      display: "none"
     };
 
     //render a custom div to the side of the tag.
     return (
-      <div className="conor mgnl-reset" style={style}>
+      <div className="conor mgnl-reset" ref="conor" style={style} onClick={this.show}>
         <ul className="mrgn-ul" ref="list">
           {this.state.notes.map(function(note) {
-            return <li className="mrgn-li">{note.text}</li>
+            return <li className="mrgn-li conor-li">{note.text}</li>
           })}
         </ul>
-        <input ref="input"/>
-        <button onClick={this.addAnnotation}>Comment</button>
+        <input ref="input" className="stephanie-input" />
+        <button onClick={this.addAnnotation} className="stephanie-button">Comment</button>
       </div>
     )
   }
