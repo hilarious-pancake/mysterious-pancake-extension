@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var React = require('react');
 var Firebase = require('firebase');
+var pageParser = require('../pageParser.jsx')
 
 var LoginPopup = React.createClass({
 
@@ -24,6 +25,8 @@ var LoginPopup = React.createClass({
         console.log("Login Failed!", error);
       } else {
         console.log("Authenticated successfully with payload:", authData);
+          //If the user logged in then call pageParser
+          pageParser();
         this.setState({
           newUser: false
         });
