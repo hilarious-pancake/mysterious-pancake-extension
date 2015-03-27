@@ -1,4 +1,6 @@
 var React = require('react');
+var firebase = require('firebaseRootRef');
+
 
 //component for annotations
 var Annotation = React.createClass({
