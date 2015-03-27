@@ -6,8 +6,8 @@ var Annotation = require('./Annotation.jsx')
   //selectable custom tag and unique IDs
 var Notable = React.createClass({
 
-  getInitialState: function() {
-  },
+  // getInitialState: function() {
+  // },
 
   componentDidMount: function() {
     $(React.findDOMNode(this.refs.conor)).css({
@@ -40,7 +40,7 @@ var Notable = React.createClass({
     return (
       <span className="jason" ref="jason" onClick={this.annotationPopUp}>
         Hello world
-        <Annotation ref="conor">
+        <Annotation ref="conor" parentText={this.props.text}>
         </Annotation>
       </span>
 
