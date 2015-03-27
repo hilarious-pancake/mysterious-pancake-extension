@@ -81,15 +81,19 @@ function wrapNodes(node) {
             currentChildNode.splitText(cutoff);
           }
 
-          React.render(<Notable text={currentChildNode.textContent} />, node);
+          // create span
+          var newSpan = document.createElement('span');
+
+          // replace child node with new span
+          node.replaceChild(newSpan, currentChildNode);
+
+          React.render(<Notable text={currentChildNode.textContent} />, newSpan);
         }
 
         // increment child count
         childNodeCount++;
       }
 
-    } else {
-      node.style.color = getRandomColor();
     }
 
     node = nodeIterator.nextNode();
