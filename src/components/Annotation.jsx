@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var React = require('react');
+
 var Firebase = require('firebase');
 var ReactFireMixin = require('reactfire');
 var sha1 = require('sha1');
@@ -48,7 +49,7 @@ var Annotation = React.createClass({
       opacity: "0.5",
       padding: "5px",
       display: "none",
-      zIndex: 1000 
+      zIndex: 1000
       // top: this.props.top,
       // left: this.props.left
     };
