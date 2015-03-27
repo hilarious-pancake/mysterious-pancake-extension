@@ -251,9 +251,19 @@
     display: none;
 }
 
+
 #mgnl-toolbar-container {
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1001;
+}
+
+.log-in-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background-color: green;
 }
