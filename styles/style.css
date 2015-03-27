@@ -151,6 +151,7 @@
 
 .conor {
   position: absolute;
+  overflow: scroll;
 }
 
 .mgnl-highlight {
