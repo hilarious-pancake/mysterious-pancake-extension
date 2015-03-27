@@ -46,7 +46,9 @@ var Annotation = React.createClass({
       height: "200px",
       borderRadius: "5px",
       opacity: "0.5",
-      padding: "5px" 
+      padding: "5px",
+      display: "none",
+      zIndex: 1000 
       // top: this.props.top,
       // left: this.props.left
     };

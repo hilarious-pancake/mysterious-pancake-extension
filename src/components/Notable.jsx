@@ -37,6 +37,7 @@ var Notable = React.createClass({
   },
 
   render: function(){
+
     return (
       <span className="jason" ref="jason" onClick={this.annotationPopUp}>
         {this.props.text}
