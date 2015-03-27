@@ -5,7 +5,7 @@ var Firebase = require('firebase');
 var ToolBar = React.createClass({
 
   showLogin: function() {
-    $('.mgnl-user-popup').toggle();
+    $('#mgnl-log-in-display').toggle();
   },
 
   render: function() {

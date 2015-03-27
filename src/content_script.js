@@ -10,7 +10,6 @@ var Firebase = require('firebase');
 
 // Render toolbar component to page
 $(document.body).append('<div id="mgnl-toolbar-container"></div>');
-console.log($('#mgnl-toolbar-container')[0]);
 React.render(<ToolBar />, $('#mgnl-toolbar-container')[0]);
 
 /********************************************
@@ -31,9 +30,8 @@ React.render(<LoginPopup />, document.body);
 
 //LOG IN DIV
 
-$(document.body).append('<div class="log-in-display"></div>');
-console.log(document.getElementsByClassName('log-in-display')[0])
-React.render(<LoginPopup />, document.getElementsByClassName('log-in-display')[0]);
+$(document.body).append('<div id="mgnl-log-in-display" class="mgnl-hidden"></div>');
+React.render(<LoginPopup />, document.getElementById('mgnl-log-in-display'));
 
 // var nodeIterator = document.createNodeIterator(
 //   // Use body node as root
