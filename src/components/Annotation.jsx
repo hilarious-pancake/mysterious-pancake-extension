@@ -10,6 +10,12 @@ var Annotation = React.createClass({
 
   mixins: [ReactFireMixin],
 
+  getInitialState: function() {
+    return {
+      notes: []
+    };
+  },
+
   componentWillMount: function() {
     // hash the url to get a unique storage id for the webpage
     var docHash = sha1(window.location.href);
@@ -26,10 +32,11 @@ var Annotation = React.createClass({
   },
 
   addAnnotation: function() {
-    var text = $(React.findDOMNode(this.refs.input)).val();
+    var text = $(React.findDOMNode(this.refs.input));
     this.firebaseRefs["notes"].push({
-      text: text
+      text: text.val()
     });
+    text.val('');
   },
 
   render: function(){
@@ -48,7 +55,10 @@ var Annotation = React.createClass({
     //render a custom div to the side of the tag.
     return (
       <div className="conor" style={style}>
-        <ul className="mrgn-list">
+        <ul className="mrgn-ul" ref="list">
+          {this.state.notes.map(function(note) {
+            return <li className="mrgn-li">{note.text}</li>
+          })}
         </ul>
         <input ref="input"/>
         <button onClick={this.addAnnotation}>Comment</button>
