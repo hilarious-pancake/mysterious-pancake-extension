@@ -29,12 +29,12 @@ var Notable = React.createClass({
   componentDidMount: function() {
     $(React.findDOMNode(this.refs.conor)).css({
       top: this.position().top,
-      left: this.position().left + 10
+      left: this.position().left
     });
   },
 
   position: function(){
-    var offset = $(React.findDOMNode(this.refs.jason)).offset()
+    var offset = $(React.findDOMNode(this.refs.jason)).position()
     var width = $(React.findDOMNode(this.refs.jason)).width();
 
     return {
