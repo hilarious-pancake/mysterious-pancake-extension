@@ -39,7 +39,7 @@ var Notable = React.createClass({
   render: function(){
     return (
       <span className="jason" ref="jason" onClick={this.annotationPopUp}>
-        Hello world
+        {this.props.text}
         <Annotation ref="conor" parentText={this.props.text}>
         </Annotation>
       </span>
