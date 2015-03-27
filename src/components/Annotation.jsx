@@ -50,14 +50,14 @@ var Annotation = React.createClass({
 
     //render a custom div to the side of the tag.
     return (
-      <div className="conor mgnl-reset" ref="conor" style={style} onClick={this.show}>
-        <ul className="mrgn-ul" ref="list">
+      <div className="mgnl-reset conor mgnl-reset" ref="conor" style={style} onClick={this.show}>
+        <ul className="mgnl-reset mrgn-ul" ref="list">
           {this.state.notes.map(function(note) {
-            return <li className="mrgn-li conor-li">{note.text}</li>
+            return <li className="mgnl-reset mrgn-li conor-li">{note.text}</li>
           })}
         </ul>
-        <input ref="input" className="stephanie-input" />
-        <button onClick={this.addAnnotation} className="stephanie-button">Comment</button>
+        <input ref="input" className="mgnl-reset stephanie-input" />
+        <button onClick={this.addAnnotation} className="mgnl-reset stephanie-button">Comment</button>
       </div>
     )
   }
