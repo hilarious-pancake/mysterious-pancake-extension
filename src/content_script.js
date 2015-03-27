@@ -4,9 +4,14 @@ var React = require('react');
 
 var Notable = require('./components/Notable.jsx');
 var Annotation = require('./components/Annotation.jsx');
+var ToolBar = require('./components/ToolBar.jsx');
 var LoginPopup = require('./components/LoginPopup.jsx');
 var Firebase = require('firebase');
 
+// Render toolbar component to page
+$(document.body).append('<div id="mgnl-toolbar-container"></div>');
+console.log($('#mgnl-toolbar-container')[0]);
+React.render(<ToolBar />, $('#mgnl-toolbar-container')[0]);
 
 /********************************************
 // React.render(<Notable text="this is for testing" />, $('.post-text')[0]);
