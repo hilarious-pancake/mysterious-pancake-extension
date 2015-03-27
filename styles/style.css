@@ -238,6 +238,15 @@
   border-bottom: 1px dotted #444;
 }
 
+
 .jason-mgnl-highlight {
   background-color: cornsilk;
+}
+
+.mgnl-visible {
+    display: block;
+}
+
+.mgnl-hidden {
+    display: none;
 }

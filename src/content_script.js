@@ -1,14 +1,29 @@
+
 var $ = require('jquery');
 var React = require('react');
 
 var Notable = require('./components/Notable.jsx');
 var Annotation = require('./components/Annotation.jsx');
+var LoginPopup = require('./components/LoginPopup.jsx');
+var Firebase = require('firebase');
+
 
 /********************************************
-  
-  Sentence tokenizer
+// React.render(<Notable text="this is for testing" />, $('.post-text')[0]);
 
- ********************************************/
+
+/////////////////////
+//  Firebase Auth  //
+/////////////////////
+
+React.render(<LoginPopup />, document.body);
+
+
+// /********************************************
+  
+//   Sentence tokenizer
+
+//  ********************************************/
 var nodeIterator = document.createNodeIterator(
   // Use body node as root
   document.getElementsByTagName('body')[0],

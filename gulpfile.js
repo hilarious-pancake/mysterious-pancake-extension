@@ -11,3 +11,12 @@ gulp.task('browserify', function(){
     .pipe(source('content_script.js'))
     .pipe(gulp.dest('./dist'));
 });
+
+// gulp.task('browserify-bg', function(){
+//   var b = browserify();
+//   b.transform(reactify); // use the reactify transform
+//   b.add('./src/bg/background.js');
+//   return b.bundle()
+//     .pipe(source('background.js'))
+//     .pipe(gulp.dest('./dist'));
+// });
