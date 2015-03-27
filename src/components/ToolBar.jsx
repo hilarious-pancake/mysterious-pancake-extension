@@ -11,7 +11,7 @@ var ToolBar = React.createClass({
   render: function() {
     return (
       <div className="mgnl-toolbar mgnl-reset">
-        <button onClick={this.showLogin}>Login</button>
+        <button className="mgnl-reset" onClick={this.showLogin}>Login</button>
       </div>
     );
   }

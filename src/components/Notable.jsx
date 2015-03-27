@@ -69,7 +69,7 @@ var Notable = React.createClass({
 
   render: function(){
     var hasNotes = this.state.notes.length > 0;
-    var classString = (hasNotes) ? "jason mgnl-underline" : "jason";
+    var classString = (hasNotes) ? "mgnl-reset jason mgnl-underline" : "jason";
 
     return (
       <span className={classString} ref="jason" onClick={this.annotationPopUp} onMouseEnter={this.highlightOn} onMouseLeave={this.highlightOff}>
