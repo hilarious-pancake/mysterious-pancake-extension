@@ -7,15 +7,12 @@ var Annotation = require('./Annotation.jsx')
 var Notable = React.createClass({
 
   getInitialState: function() {
-    return {
-      salt: Math.floor(Math.random()*1000000)
-    };
   },
 
   componentDidMount: function() {
     $(React.findDOMNode(this.refs.conor)).css({
       top: this.position().top,
-      left: this.position().left
+      left: this.position().left + 10
     });
   },
 
@@ -31,7 +28,7 @@ var Notable = React.createClass({
   },
 
   annotationPopUp: function(e){
-    if (e.target !== React.findDOMNode(this.refs.conor)) {
+    if (!React.findDOMNode(this.refs.conor).contains(e.target)) {
       $(React.findDOMNode(this.refs.conor)).fadeToggle();
     }
     //render annotation component

@@ -1,7 +1,15 @@
 var React = require('react');
+var Firebase = require('firebase');
+var ReactFireMixin = require('reactfire');
 
 //component for annotations
 var Annotation = React.createClass({
+
+  mixins: [ReactFireMixin],
+
+  componentWillMount: function() {
+    this.bindAsArray(new Firebase("https://popping-torch-5999.firebaseio.com/???/notes"), "notes");
+  },
 
   componentDidMount: function() {
     // set firebase sync/change listener
@@ -15,11 +23,12 @@ var Annotation = React.createClass({
   render: function(){
     var style = {
       position: "absolute",
-      "background-color": "red",
+      "background-color": "#cccccc",
       "width": "400px",
       "height": "200px",
-      "border-radius": "10px",
-      "opacity": "0.5"
+      "border-radius": "5px",
+      "opacity": "0.5",
+      padding: "5px" 
       // top: this.props.top,
       // left: this.props.left
     };
@@ -27,10 +36,10 @@ var Annotation = React.createClass({
     //render a custom div to the side of the tag.
     return (
       <div className="conor" style={style}>
-        <ul class="mrgn-list">
+        <ul className="mrgn-list">
         </ul>
         <input ref="input"/>
-        <button onClick="this.addAnnotation"></button>
+        <button onClick="this.addAnnotation">Comment</button>
       </div>
     )
   }
