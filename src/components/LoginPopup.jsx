@@ -32,6 +32,9 @@ var LoginPopup = React.createClass({
         });
       }
     }.bind(this));
+
+    $(React.findDOMNode(this.refs.l_email)).val('');
+    $(React.findDOMNode(this.refs.l_password)).val('');
   },
 
   submitSignup: function() {
@@ -51,6 +54,9 @@ var LoginPopup = React.createClass({
         this.submitLogin(null, email, password);
       }
     }.bind(this));
+
+    $(React.findDOMNode(this.refs.s_email)).val('');
+    $(React.findDOMNode(this.refs.s_password)).val('');
   },
 
   toggleNewUserState: function() {
