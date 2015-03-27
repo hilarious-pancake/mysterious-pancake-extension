@@ -68,16 +68,16 @@ var LoginPopup = React.createClass({
       <div className="mgnl-user-popup">
         <div className={classStringLogin}>
           Login
-          <input id="mgnl-email" ref="l_email"></input>
-          <input id="mgnl-password" ref="l_password"></input>
-          <button onClick={this.submitLogin}>Login</button>
+          <input className="stephanie-input" id="mgnl-email" ref="l_email"></input>
+          <input className="stephanie-input" id="mgnl-password" type="password" ref="l_password"></input>
+          <button className="stephanie-button" onClick={this.submitLogin}>Login</button>
           <span onClick={this.toggleNewUserState}>New user?</span>
         </div>
         <div className={classStringSignup}>
           Signup
-          <input id="mgnl-email" ref="s_email"></input>
-          <input id="mgnl-password" ref="s_password"></input>
-          <button onClick={this.submitSignup}>Signup</button>
+          <input className="stephanie-input" id="mgnl-email" ref="s_email"></input>
+          <input className="stephanie-input" id="mgnl-password" type="password" ref="s_password"></input>
+          <button className="stephanie-button" onClick={this.submitSignup}>Signup</button>
           <span onClick={this.toggleNewUserState}>Already signed up?</span>
         </div>
       </div>
