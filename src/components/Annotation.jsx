@@ -33,10 +33,14 @@ var Annotation = React.createClass({
 
   addAnnotation: function() {
     var text = $(React.findDOMNode(this.refs.input));
-    this.firebaseRefs["notes"].push({
-      text: text.val()
-    });
-    text.val('');
+
+    // only add annotations that contain content other than whitespace
+    if (/\S/.test(text.val())) {
+      this.firebaseRefs["notes"].push({
+        text: text.val()
+      });
+      text.val('');
+    }
   },
 
   show: function() {
@@ -50,7 +54,7 @@ var Annotation = React.createClass({
 
     //render a custom div to the side of the tag.
     return (
-      <div className="conor mgnl-reset" ref="conor" style={style} onClick={this.show}>
+      <div className="conor mgnl-reset" ref="conor" style={style} onClick={this.show} onBlur={this.props.parentHidePopup} tabIndex="1">
         <ul className="mrgn-ul" ref="list">
           {this.state.notes.map(function(note) {
             return <li className="mrgn-li conor-li">{note.text}</li>

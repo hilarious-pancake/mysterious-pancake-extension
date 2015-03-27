@@ -150,6 +150,7 @@
 }
 
 .jason {
+  display: inline !important;
   cursor: pointer;
 }
 
@@ -164,7 +165,6 @@
   opacity: 0.5;
   padding: 5px 10px;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 10px #555;
   box-shadow: 1px 1px 10px #555;
