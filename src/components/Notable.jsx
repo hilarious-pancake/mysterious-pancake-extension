@@ -6,16 +6,13 @@ var Annotation = require('./Annotation.jsx')
   //selectable custom tag and unique IDs
 var Notable = React.createClass({
 
-  getInitialState: function() {
-    return {
-      salt: Math.floor(Math.random()*1000000)
-    };
-  },
+  // getInitialState: function() {
+  // },
 
   componentDidMount: function() {
     $(React.findDOMNode(this.refs.conor)).css({
       top: this.position().top,
-      left: this.position().left
+      left: this.position().left + 10
     });
   },
 
@@ -31,7 +28,7 @@ var Notable = React.createClass({
   },
 
   annotationPopUp: function(e){
-    if (e.target !== React.findDOMNode(this.refs.conor)) {
+    if (!React.findDOMNode(this.refs.conor).contains(e.target)) {
       $(React.findDOMNode(this.refs.conor)).fadeToggle();
     }
     //render annotation component
@@ -43,7 +40,7 @@ var Notable = React.createClass({
     return (
       <span className="jason" ref="jason" onClick={this.annotationPopUp}>
         Hello world
-        <Annotation ref="conor">
+        <Annotation ref="conor" parentText={this.props.text}>
         </Annotation>
       </span>
 
