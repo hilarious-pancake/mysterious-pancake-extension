@@ -3,11 +3,7 @@ var React = require('react');
 var Annotation = require('./Annotation.jsx')
 
 //component for notable objects
-  //selectable custom tag and unique IDs
 var Notable = React.createClass({
-
-  // getInitialState: function() {
-  // },
 
   componentDidMount: function() {
     $(React.findDOMNode(this.refs.conor)).css({
@@ -19,7 +15,6 @@ var Notable = React.createClass({
   position: function(){
     var offset = $(React.findDOMNode(this.refs.jason)).offset()
     var width = $(React.findDOMNode(this.refs.jason)).width();
-    // var height = $('customClickedDiv').height();
 
     return {
       top: offset.top,
@@ -31,15 +26,16 @@ var Notable = React.createClass({
     if (!React.findDOMNode(this.refs.conor).contains(e.target)) {
       $(React.findDOMNode(this.refs.conor)).fadeToggle();
     }
-    //render annotation component
-      //render annotation component to the body using jsx
-        //you need to pass along the positioning as a prop so that you have access to it in the annotation comp
+  },
+
+  toggleHighlight: function(e) {
+    $(React.findDOMNode(this.refs.jason)).toggleClass('mgnl-highlight');
   },
 
   render: function(){
 
     return (
-      <span className="jason" ref="jason" onClick={this.annotationPopUp}>
+      <span className="jason" ref="jason" onClick={this.annotationPopUp} onMouseEnter={this.toggleHighlight} onMouseLeave={this.toggleHighlight}>
         {this.props.text}
         <Annotation ref="conor" parentText={this.props.text}>
         </Annotation>
@@ -51,4 +47,3 @@ var Notable = React.createClass({
 });
 
 module.exports = Notable;
-        // {this.props.innerHTML}
