@@ -55,7 +55,7 @@ var Annotation = React.createClass({
 
     //render a custom div to the side of the tag.
     return (
-      <div className="conor" style={style}>
+      <div className="conor mgnl-reset" style={style}>
         <ul className="mrgn-ul" ref="list">
           {this.state.notes.map(function(note) {
             return <li className="mrgn-li">{note.text}</li>
