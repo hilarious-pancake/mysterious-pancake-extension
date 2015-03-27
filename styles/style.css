@@ -5,3 +5,7 @@
 .mgnl-highlight {
   background-color: yellow;
 }
+
+.mgnl-underline {
+  border-bottom: 1px dotted #444;
+}
