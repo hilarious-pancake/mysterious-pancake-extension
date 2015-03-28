@@ -74,8 +74,8 @@
     empty-cells : show;
     float : none;
     font : normal;
-    font-family : Helvetica, Arial, sans-serif;
-    font-size : medium;
+    font-family : inherit;
+    font-size : inherit;
     font-style : normal;
     font-variant : normal;
     font-weight : normal;
@@ -150,6 +150,7 @@
 }
 
 .jason {
+  display: inline !important;
   cursor: pointer;
 }
 
@@ -164,13 +165,18 @@
   opacity: 0.5;
   padding: 5px 10px;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 10px #555;
   box-shadow: 1px 1px 10px #555;
 }
 
+.conor, .stephanie-input, .stephanie-button {
+  font-family : Helvetica, Arial, sans-serif !important;
+  font-size: 0.8em !important;
+}
+
 .conor-li {
+  display: block;
   font-size: 0.8em;
   padding: 1em;
   color: #222;
@@ -188,8 +194,6 @@
 }
 
 .stephanie-input, .stephanie-button {
-  font-family : Helvetica, Arial, sans-serif !important;
-  font-size: 0.8em;
   padding: 0.6em 1em;
 }
 
@@ -212,7 +216,9 @@
   float: right;
   color: #fff;
   font-weight: 800;
+  cursor: pointer;
   letter-spacing: 0.1em;
+  text-shadow: -1px -1px 4px rgb(0, 148, 113);
   text-transform: uppercase;
   background: rgb(2, 175, 134);
   border: 1px solid rgb(0, 148, 113);
@@ -238,7 +244,6 @@
 .mgnl-underline {
   border-bottom: 1px dotted #444;
 }
-
 
 .jason-mgnl-highlight {
   background-color: cornsilk;
