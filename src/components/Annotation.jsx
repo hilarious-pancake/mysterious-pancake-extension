@@ -32,9 +32,13 @@ var Annotation = React.createClass({
   },
 
   addAnnotation: function() {
+    var ref = new Firebase("https://popping-torch-5999.firebaseio.com");
+    var authData = ref.getAuth();
+    console.log(authData);
     var text = $(React.findDOMNode(this.refs.input));
     this.firebaseRefs["notes"].push({
-      text: text.val()
+      text: text.val(),
+      uid: authData.uid
     });
     text.val('');
   },
