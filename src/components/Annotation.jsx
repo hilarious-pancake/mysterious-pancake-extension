@@ -37,8 +37,8 @@ var Annotation = React.createClass({
     console.log(authData);
     var text = $(React.findDOMNode(this.refs.input));
     this.firebaseRefs["notes"].push({
-      text: text.val(),
-      uid: authData.uid
+      text: text.val()
+      // uid: authData.uid
     });
     text.val('');
     var annotation = $(React.findDOMNode(this.refs.conor));
