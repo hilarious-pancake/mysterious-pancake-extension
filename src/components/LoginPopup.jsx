@@ -32,6 +32,9 @@ var LoginPopup = React.createClass({
         });
       }
     }.bind(this));
+
+    $(React.findDOMNode(this.refs.l_email)).val('');
+    $(React.findDOMNode(this.refs.l_password)).val('');
   },
 
   submitSignup: function() {
@@ -51,6 +54,9 @@ var LoginPopup = React.createClass({
         this.submitLogin(null, email, password);
       }
     }.bind(this));
+
+    $(React.findDOMNode(this.refs.s_email)).val('');
+    $(React.findDOMNode(this.refs.s_password)).val('');
   },
 
   toggleNewUserState: function() {
@@ -61,24 +67,24 @@ var LoginPopup = React.createClass({
 
   render: function() {
     var newUser = this.state.newUser;
-    var classStringLogin = (!newUser) ? "mgnl-login mgnl-visible" : "mgnl-login mgnl-hidden";
-    var classStringSignup = (newUser) ? "mgnl-signup mgnl-visible" : "mgnl-signup mgnl-hidden";
+    var classStringLogin = (!newUser) ? "mgnl-reset mgnl-login mgnl-visible" : "mgnl-reset mgnl-login mgnl-hidden";
+    var classStringSignup = (newUser) ? "mgnl-reset mgnl-signup mgnl-visible" : "mgnl-reset mgnl-signup mgnl-hidden";
 
     return (
-      <div className="mgnl-user-popup">
+      <div className="mgnl-reset mgnl-user-popup">
         <div className={classStringLogin}>
           Login
-          <input className="stephanie-input" id="mgnl-email" ref="l_email"></input>
-          <input className="stephanie-input" id="mgnl-password" type="password" ref="l_password"></input>
-          <button className="stephanie-button" onClick={this.submitLogin}>Login</button>
-          <span onClick={this.toggleNewUserState}>New user?</span>
+          <input className="mgnl-reset stephanie-input" id="mgnl-email" ref="l_email"></input>
+          <input className="mgnl-reset stephanie-input" id="mgnl-password" type="password" ref="l_password"></input>
+          <button className="mgnl-reset stephanie-button" onClick={this.submitLogin}>Login</button>
+          <span className="mgnl-reset" onClick={this.toggleNewUserState}>New user?</span>
         </div>
         <div className={classStringSignup}>
           Signup
-          <input className="stephanie-input" id="mgnl-email" ref="s_email"></input>
-          <input className="stephanie-input" id="mgnl-password" type="password" ref="s_password"></input>
-          <button className="stephanie-button" onClick={this.submitSignup}>Signup</button>
-          <span onClick={this.toggleNewUserState}>Already signed up?</span>
+          <input className="mgnl-reset stephanie-input" id="mgnl-email" ref="s_email"></input>
+          <input className="mgnl-reset stephanie-input" id="mgnl-password" type="password" ref="s_password"></input>
+          <button className="mgnl-reset stephanie-button" onClick={this.submitSignup}>Signup</button>
+          <span className="mgnl-reset" onClick={this.toggleNewUserState}>Already signed up?</span>
         </div>
       </div>
     );

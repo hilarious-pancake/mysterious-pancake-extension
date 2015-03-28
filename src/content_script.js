@@ -43,8 +43,9 @@ var nodeIterator = document.createNodeIterator(
           node.tagName === 'H1' || node.tagName === 'H2' ||
           node.tagName === 'H3' || node.tagName === 'H4' ||
           node.tagName === 'H5' || node.tagName === 'H6') &&
-        node.className !== 'jason' && node.firstChild.nodeType === 3 &&
-        /\S/.test(node.firstChild.textContent)) {
+        node.className !== 'jason' && node.className !== 'conor' &&
+        node.className !== 'mgnl-success' && node.className !== 'mgnl-failure' &&
+        node.firstChild.nodeType === 3 && /\S/.test(node.firstChild.textContent)) {
         return NodeFilter.FILTER_ACCEPT;
       } else {
         return NodeFilter.FILTER_REJECT;
@@ -117,4 +118,3 @@ function wrapNodes(node) {
   }
   
 }
->>>>>>> Stashed changes
