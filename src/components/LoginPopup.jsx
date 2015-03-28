@@ -7,11 +7,16 @@ var LoginPopup = React.createClass({
 
   getInitialState: function() {
     return {
-      newUser: false
+      newUser: false,
+      attempted: false,
+      success: false
     }
   },
 
   submitLogin: function(e, _email, _password) {
+    this.setState({
+      attempted: true
+    });
     var email = e === null ? _email : $(React.findDOMNode(this.refs.l_email)).val();
     var password = e === null ? _password : $(React.findDOMNode(this.refs.l_password)).val();
     console.log(email);
@@ -28,7 +33,8 @@ var LoginPopup = React.createClass({
           //If the user logged in then call pageParser
           pageParser();
         this.setState({
-          newUser: false
+          newUser: false,
+          success: true
         });
       }
     }.bind(this));
@@ -67,13 +73,22 @@ var LoginPopup = React.createClass({
 
   render: function() {
     var newUser = this.state.newUser;
+    var attempted = this.state.attempted;
+    var success = this.state.success;
+    var classStringSuccess = "mgnl-success";
+    var classStringFailure = "mgnl-failure";
+    classStringSuccess += attempted ? ((success) ? " mgnl-visible" : " mgnl-hidden") : " mgnl-hidden";
+    classStringFailure += attempted ? ((!success) ? " mgnl-visible" : " mgnl-hidden") : " mgnl-hidden";
     var classStringLogin = (!newUser) ? "mgnl-reset mgnl-login mgnl-visible" : "mgnl-reset mgnl-login mgnl-hidden";
     var classStringSignup = (newUser) ? "mgnl-reset mgnl-signup mgnl-visible" : "mgnl-reset mgnl-signup mgnl-hidden";
+
 
     return (
       <div className="mgnl-reset mgnl-user-popup">
         <div className={classStringLogin}>
           Login
+          <div className={classStringSuccess}>You are now logged in!</div>
+          <div className={classStringFailure}>Login Failed...</div>
           <input className="mgnl-reset stephanie-input" id="mgnl-email" ref="l_email"></input>
           <input className="mgnl-reset stephanie-input" id="mgnl-password" type="password" ref="l_password"></input>
           <button className="mgnl-reset stephanie-button" onClick={this.submitLogin}>Login</button>
@@ -81,6 +96,8 @@ var LoginPopup = React.createClass({
         </div>
         <div className={classStringSignup}>
           Signup
+          <div className={classStringSuccess}>Success!</div>
+          <div className={classStringFailure}>Signup Failed...</div>
           <input className="mgnl-reset stephanie-input" id="mgnl-email" ref="s_email"></input>
           <input className="mgnl-reset stephanie-input" id="mgnl-password" type="password" ref="s_password"></input>
           <button className="mgnl-reset stephanie-button" onClick={this.submitSignup}>Signup</button>
