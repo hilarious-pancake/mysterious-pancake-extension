@@ -33,6 +33,7 @@ var Annotation = React.createClass({
 
   addAnnotation: function() {
     var text = $(React.findDOMNode(this.refs.input));
+    var annotation = $(React.findDOMNode(this.refs.conor));
 
     // only add annotations that contain content other than whitespace
     if (/\S/.test(text.val())) {
@@ -41,6 +42,10 @@ var Annotation = React.createClass({
       });
       text.val('');
     }
+
+    annotation.animate({
+      scrollTop: annotation.prop('scrollHeight') - annotation.height()
+    }, 500);
   },
 
   show: function() {
