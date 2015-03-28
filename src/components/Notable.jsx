@@ -43,13 +43,20 @@ var Notable = React.createClass({
     }
   },
 
-  annotationPopUp: function(e){
+  annotationPopup: function(e){
     var annotation = React.findDOMNode(this.refs.conor);
     var annotationObj = $(annotation);
     var sentenceObj = $(React.findDOMNode(this.refs.jason));
+    var allAnnotations = $('.conor');
+    var allSentences = $('.jason');
 
     if (!annotation.contains(e.target)) {
+      allAnnotations.not(annotationObj).css('display', 'none');
+      allSentences.not(sentenceObj).removeClass('jason-mgnl-highlight');
+
       annotationObj.fadeToggle();
+
+      annotationObj.focus();
 
       annotationObj.animate({
         scrollTop: annotationObj.prop('scrollHeight') - annotationObj.height()
@@ -57,6 +64,7 @@ var Notable = React.createClass({
 
       sentenceObj.toggleClass('jason-mgnl-highlight');
     }
+
   },
 
   highlightOn: function(e) {
@@ -72,12 +80,11 @@ var Notable = React.createClass({
     var classString = (hasNotes) ? "mgnl-reset jason mgnl-underline" : "jason";
 
     return (
-      <span className={classString} ref="jason" onClick={this.annotationPopUp} onMouseEnter={this.highlightOn} onMouseLeave={this.highlightOff}>
+      <div className={classString} ref="jason" onClick={this.annotationPopup} onMouseEnter={this.highlightOn} onMouseLeave={this.highlightOff}>
         {this.props.text}
         <Annotation ref="conor" parentText={this.props.text}>
         </Annotation>
-      </span>
-
+      </div>
     );
   }
 

@@ -41,6 +41,19 @@ var Annotation = React.createClass({
       uid: authData.uid
     });
     text.val('');
+    var annotation = $(React.findDOMNode(this.refs.conor));
+
+    // only add annotations that contain content other than whitespace
+    if (/\S/.test(text.val())) {
+      this.firebaseRefs["notes"].push({
+        text: text.val()
+      });
+      text.val('');
+    }
+
+    annotation.animate({
+      scrollTop: annotation.prop('scrollHeight') - annotation.height()
+    }, 500);
   },
 
   show: function() {
@@ -54,7 +67,7 @@ var Annotation = React.createClass({
 
     //render a custom div to the side of the tag.
     return (
-      <div className="mgnl-reset conor mgnl-reset" ref="conor" style={style} onClick={this.show}>
+      <div className="conor mgnl-reset" ref="conor" style={style} onClick={this.show} tabIndex="1">
         <ul className="mgnl-reset mrgn-ul" ref="list">
           {this.state.notes.map(function(note) {
             return <li className="mgnl-reset mrgn-li conor-li">{note.text}</li>
