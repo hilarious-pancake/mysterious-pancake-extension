@@ -7,11 +7,16 @@ var LoginPopup = React.createClass({
 
   getInitialState: function() {
     return {
-      newUser: false
+      newUser: false,
+      attempted: false,
+      success: false
     }
   },
 
   submitLogin: function(e, _email, _password) {
+    this.setState({
+      attempted: true
+    });
     var email = e === null ? _email : $(React.findDOMNode(this.refs.l_email)).val();
     var password = e === null ? _password : $(React.findDOMNode(this.refs.l_password)).val();
     console.log(email);
@@ -28,7 +33,8 @@ var LoginPopup = React.createClass({
           //If the user logged in then call pageParser
           pageParser();
         this.setState({
-          newUser: false
+          newUser: false,
+          success: true
         });
       }
     }.bind(this));
@@ -67,11 +73,20 @@ var LoginPopup = React.createClass({
 
   render: function() {
     var newUser = this.state.newUser;
-    var classStringLogin = (!newUser) ? "mgnl-reset mgnl-login mgnl-visible" : "mgnl-reset mgnl-login mgnl-hidden";
-    var classStringSignup = (newUser) ? "mgnl-reset mgnl-signup mgnl-visible" : "mgnl-reset mgnl-signup mgnl-hidden";
+    var attempted = this.state.attempted;
+    var success = this.state.success;
+    var classStringSuccess = "mgnl-success";
+    var classStringFailure = "mgnl-failure";
+    classStringSuccess += attempted ? ((success) ? " mgnl-visible" : " mgnl-hidden") : " mgnl-hidden";
+    classStringFailure += attempted ? ((!success) ? " mgnl-visible" : " mgnl-hidden") : " mgnl-hidden";
+    var classStringLogin = (!newUser && !success) ? "mgnl-reset mgnl-login mgnl-visible" : "mgnl-reset mgnl-login mgnl-hidden";
+    var classStringSignup = (newUser && !success) ? "mgnl-reset mgnl-signup mgnl-visible" : "mgnl-reset mgnl-signup mgnl-hidden";
+
 
     return (
       <div className="mgnl-reset mgnl-user-popup">
+        <div className={classStringSuccess}>You are now logged in!</div>
+        <div className={classStringFailure}>Failed...</div>
         <div className={classStringLogin}>
           Login
           <input className="mgnl-reset stephanie-input" id="mgnl-email" ref="l_email"></input>

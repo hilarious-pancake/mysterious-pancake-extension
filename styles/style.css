@@ -208,6 +208,7 @@
   box-shadow: -1px -1px 1px #9c9c9c;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+  background-color: #f0f0f0;
 }
 
 .stephanie-button {
@@ -262,28 +263,55 @@
     top: 0;
     right: 0;
     z-index: 1001;
-    height: 40px;
-    width: 60px;
+    height: auto;
+    width: auto;
+    text-align: center;
 }
 
 #mgnl-toolbar-container button {
     font-size: 20px;
     font-family: Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.1em;
     width: 100%;
     height: 100%;
-    background-color: #F49AC2;
+    background-color: #8493CA;
     border: none;
+    color: #eeeeee;
+    border: 1px solid #7986b7;
+    border-radius: 0 0 0 4px;
+    -webkit-box-shadow: 1px 1px 10px #555;
+    box-shadow: 1px 1px 10px #555;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    text-shadow: -1px -1px 4px #7986b7;
 }
 
 #mgnl-log-in-display {
     min-width: 300px;
     z-index: 1002;
   position: fixed;
-  top: 40px;
+  top: 45px;
   right: 0;
   padding: 10px;
   border-radius: 4px;
   background-color: #cccccc;
   -webkit-box-shadow: 1px 1px 10px #555;
   box-shadow: 1px 1px 10px #555;
+}
+
+.mgnl-success {
+    margin-top: 5px;
+    color: white;
+    background-color: #3BB878;
+    border: 1px solid #349e67;
+    padding: 5px;
+}
+
+.mgnl-failure {
+    margin-top: 5px;
+    color: white;
+    background-color: #F26C4F;
+    border: 1px solid #ce5b44;
+    padding: 5px;
 }

@@ -5,13 +5,13 @@ var Firebase = require('firebase');
 var ToolBar = React.createClass({
 
   showLogin: function() {
-    $('#mgnl-log-in-display').toggle();
+    $('#mgnl-log-in-display').fadeToggle(100);
   },
 
   render: function() {
     return (
       <div className="mgnl-toolbar mgnl-reset">
-        <button className="mgnl-reset" onClick={this.showLogin}>Login</button>
+        <button className="mgnl-reset" onClick={this.showLogin}>LOGIN</button>
       </div>
     );
   }
